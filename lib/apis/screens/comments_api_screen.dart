@@ -30,8 +30,36 @@ class _CommentsApiScreenState extends State<CommentsApiScreen> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text('Comments API')),
+      body: FutureBuilder(
+        future: getCommentsAPI(),
+        builder: (context, snapshopt) {
+          if (!snapshopt.hasData) {
+            return CircularProgressIndicator();
+          } else {
+            return ListView.builder(
+              itemCount: commentList.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(commentList[index].id.toString()),
+                    Text(commentList[index].postId.toString()),
+                    Text(commentList[index].name!),
+                    Text(commentList[index].email!),
+                    Text(commentList[index].body!),
+                  ],
+                );
+              },
+            );
+          }
+        },
+      ),
+    );
   }
 }

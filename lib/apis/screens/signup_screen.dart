@@ -15,7 +15,7 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  void logIn(String name, email, password) async {
+  void signUp(String name, email, password) async {
     try {
       Response response = await post(
         Uri.parse(
@@ -56,7 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              logIn(
+              signUp(
                 nameController.text,
                 emailController.text,
                 passwordController.text,

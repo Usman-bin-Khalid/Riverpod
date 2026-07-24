@@ -58,6 +58,32 @@ class TodoScreen extends ConsumerWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showAddDialog(context, ref);
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  void _showAddDialog(BuildContext context, WidgetRef ref) {
+    final controller = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("New Todo"),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(hintText: 'What want to do'),
+          // Key board ky zrye add krna onSubmitted
+          onSubmitted: (_) {
+            ref.read(todoProvider.notifier).add(controller.text.toString());
+            Navigator.pop(context);
+          },
+        ),
+      ),
     );
   }
 }

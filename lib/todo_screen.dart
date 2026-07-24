@@ -83,6 +83,18 @@ class TodoScreen extends ConsumerWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () {
+              ref.read(todoProvider.notifier).add(controller.text);
+            },
+            child: Text('Add'),
+          ),
+        ],
       ),
     );
   }

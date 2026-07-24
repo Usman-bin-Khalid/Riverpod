@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_code/todo_screen.dart';
 
 void main() {
+  // Provider Scope likhny sy pory project mai Riverpod Enable ho jai ga
   runApp(ProviderScope(child: MyApp()));
 }
 

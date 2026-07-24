@@ -13,7 +13,7 @@ final pendingCountProvider = Provider<int>((ref) {
   // watch todoProvider ko observer krta hy means kuch bhi change hota hy
   // to directly todos update ho jai ga
 
-  // read aik hi bar changin ko catch krta hy usky bd koi bhi changing
+  // read aik hi bar changing ko catch krta hy usky bd koi bhi changing
   // hoti hy provider mai usko koi frq nhi pry ga
   return todos.where((t) => !t.done).length;
 });

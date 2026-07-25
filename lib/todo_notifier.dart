@@ -27,6 +27,8 @@ class TodoNotifier extends Notifier<List<Todo>> {
     ];
   }
 
+  // where ky pass power hoti hy k wo true ko rkh leta hy
+  // or false ko nikal deta hy
   void remove(String id) {
     state = state.where((todo) => todo.id != id).toList();
   }

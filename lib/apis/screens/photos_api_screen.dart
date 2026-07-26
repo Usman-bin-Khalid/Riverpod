@@ -33,9 +33,29 @@ class _PhotosApiScreenState extends State<PhotosApiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: FutureBuilder(future: getPhotosAPI(), builder: (context, snapshot) {
-       
-      }),
+      body: FutureBuilder(
+        future: getPhotosAPI(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          } else {
+           return ListView.builder(
+              itemCount: _photosList.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                          
+                    ],
+                  ),
+                );
+              },
+            );
+          }
+        },
+      ),
     );
   }
 }

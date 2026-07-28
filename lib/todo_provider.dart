@@ -6,6 +6,8 @@ final todoProvider = NotifierProvider<TodoNotifier, List<Todo>>(
   TodoNotifier.new, // jb zrorat pry todo notifier ka object bna dena
 );
 
+
+
 final pendingCountProvider = Provider<int>((ref) {
   // Jitna bhi riverpod ka control hota hy wo ref ky pass hota hy
   // Kisi bhi provider sy data access krna hy to hum ref ky through kr skty hyn

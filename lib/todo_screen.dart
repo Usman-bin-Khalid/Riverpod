@@ -17,14 +17,14 @@ class TodoScreen extends ConsumerWidget {
           Padding(
             padding: EdgeInsets.all(12),
             child: Text(
-              "$pending kam baqi hy",
+              "$pending Remaining",
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
           Expanded(
             child: todos.isEmpty
                 ? const Center(
-                    child: Text("Abhi koi todo nhi hy nechy + dobaou"),
+                    child: Text("No todo exist tap + to add todo"),
                   )
                 : ListView.builder(
                     itemCount: todos.length,

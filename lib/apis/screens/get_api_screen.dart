@@ -29,7 +29,7 @@ class _GetApiScreenState extends State<GetApiScreen> {
     }
   }
 
-
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,24 @@ class _GetApiScreenState extends State<GetApiScreen> {
                   return ListView.builder(
                     itemCount: postList.length,
                     itemBuilder: (context, index) {
-                      return Text(postList[index].body.toString());
+                      return Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+
+                            children: [
+                              Text(
+                                "Title\n" + postList[index].title.toString(),
+                              ),
+                              Text(
+                                "Description\n" +
+                                    postList[index].body.toString(),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
                     },
                   );
                 }

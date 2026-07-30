@@ -47,6 +47,7 @@ class _PhotosApiScreenState extends State<PhotosApiScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                          Text(_photosList[index].albumId.toString()),
                           
                     ],
                   ),

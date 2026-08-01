@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body.toString());
-      print(data);
+      print(data['token']);
     } else {
       print('Failed');
     }
@@ -43,7 +43,12 @@ class _LoginScreenState extends State<LoginScreen> {
             controller: passwordController,
             decoration: InputDecoration(hintText: 'Password'),
           ),
-          ElevatedButton(onPressed: () {}, child: Text('Log In')),
+          ElevatedButton(
+            onPressed: () {
+              login(emailController.text, passwordController.text);
+            },
+            child: Text('Log In'),
+          ),
         ],
       ),
     );

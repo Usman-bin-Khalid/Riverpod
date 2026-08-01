@@ -4,21 +4,18 @@ import 'package:http/http.dart' as http;
 import 'package:riverpod_code/apis/models/weather_model.dart';
 
 
+
 class WeatherService {
   static const String _baseUrl = "api.weatherapi.com";
   static const String _apiKey = "d295f978e92146e18a9191555250210";
 
   Future<WeatherModel?> getWeather(String city) async {
     try {
-      final uri = Uri.https(
-        _baseUrl,
-        "/v1/current.json",
-        {
-          "key": _apiKey,
-          "q": city,
-          "aqi": "no",
-        },
-      );
+      final uri = Uri.https(_baseUrl, "/v1/current.json", {
+        "key": _apiKey,
+        "q": city,
+        "aqi": "no",
+      });
 
       final response = await http.get(uri);
 

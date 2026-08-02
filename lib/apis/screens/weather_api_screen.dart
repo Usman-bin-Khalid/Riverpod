@@ -15,9 +15,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
   final TextEditingController cityController = TextEditingController();
 
   final WeatherService weatherService = WeatherService();
-
+  
+  
   WeatherModel? weather;
   bool isLoading = false;
+
 
   Future<void> getWeather() async {
     if (cityController.text.trim().isEmpty) return;

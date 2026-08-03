@@ -30,8 +30,6 @@ class _CommentsApiScreenState extends State<CommentsApiScreen> {
     }
   }
 
- 
-
   // Agr hmary pass jo api ka response aya hy wo is form mai hy [{}, {}] means
   // list of objects hyn to hum function likhty huy List bhi likhyn gy jesa k
   // Future<List<CommentsModel>> getCommentsAPI() async {
@@ -51,8 +49,7 @@ class _CommentsApiScreenState extends State<CommentsApiScreen> {
   //  .map((e) => CommentsModel.fromJson(e))
   //.toList();
   //  }
-
-  //  throw Exception("Failed");
+   //  throw Exception("Failed");
   //}
 
   @override
@@ -76,7 +73,6 @@ class _CommentsApiScreenState extends State<CommentsApiScreen> {
                     Text(commentList[index].name!),
                     Text(commentList[index].email!),
                     Text(commentList[index].body!),
-                    
                   ],
                 );
               },

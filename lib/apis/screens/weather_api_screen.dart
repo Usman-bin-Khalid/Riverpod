@@ -11,7 +11,6 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   final TextEditingController cityController = TextEditingController();
- 
   final WeatherService weatherService = WeatherService();
 
   WeatherModel? weather;

@@ -10,7 +10,7 @@ import 'package:riverpod_code/models/todo_model.dart';
 class TodoNotifier extends Notifier<List<Todo>> {
   @override
   List<Todo> build() => [Todo(id: "1", title: 'Study Flutter')];
-
+  
   void add(String title) {
     if (title.trim().isEmpty) return;
     final todo = Todo(

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_code/apis/models/weather_model.dart';
 import 'package:riverpod_code/apis/services/weather_service.dart';
 
-
-
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
 
@@ -13,13 +11,11 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   final TextEditingController cityController = TextEditingController();
-
+ 
   final WeatherService weatherService = WeatherService();
-  
-  
+
   WeatherModel? weather;
   bool isLoading = false;
-
 
   Future<void> getWeather() async {
     if (cityController.text.trim().isEmpty) return;
@@ -28,14 +24,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
       isLoading = true;
     });
 
-    weather = await weatherService.getWeather(
-      cityController.text.trim(),
-    );
+    weather = await weatherService.getWeather(cityController.text.trim());
 
     setState(() {
       isLoading = false;
     });
   }
+
+ 
 
   @override
   void dispose() {
@@ -46,9 +42,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Weather API"),
-      ),
+      appBar: AppBar(title: const Text("Weather API")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -73,8 +67,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
             const SizedBox(height: 30),
 
-            if (isLoading)
-              const CircularProgressIndicator(),
+            if (isLoading) const CircularProgressIndicator(),
 
             if (weather != null)
               Card(
@@ -96,20 +89,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
                       Text(
                         "${weather!.current!.tempC} °C",
-                        style: const TextStyle(
-                          fontSize: 22,
-                        ),
+                        style: const TextStyle(fontSize: 22),
                       ),
 
                       Text(weather!.current!.condition!.text!),
 
                       const SizedBox(height: 10),
 
-                      Text(
-                          "Humidity : ${weather!.current!.humidity}%"),
+                      Text("Humidity : ${weather!.current!.humidity}%"),
 
-                      Text(
-                          "Wind : ${weather!.current!.windKph} km/h"),
+                      Text("Wind : ${weather!.current!.windKph} km/h"),
                     ],
                   ),
                 ),

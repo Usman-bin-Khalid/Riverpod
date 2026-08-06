@@ -4,8 +4,6 @@
 // Agr hmary pass Todo model ky andr kuch bhi change ho rha hy
 // to Notifier UI ko btaye ga or usky according UI update ho gi
 
-
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_code/models/todo_model.dart';
 
@@ -28,6 +26,8 @@ class TodoNotifier extends Notifier<List<Todo>> {
         if (todo.id == id) todo.copyWith(done: !todo.done) else todo,
     ];
   }
+
+   
 
   // where ky pass power hoti hy k wo true ko rkh leta hy
   // or false ko nikal deta hy
